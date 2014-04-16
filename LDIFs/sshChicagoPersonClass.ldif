@@ -1,0 +1,78 @@
+# This is an LDIF that defines additional attributes we attach to members.
+
+# TODO: The OIDs here need to be re-defined to use our PEN.
+# I think 1.3.6.1.4.1.<oid>.<whatever> is standard for attributes
+# and 2.16.840.<oid>.<whatever> is classes. I think. 
+# I'd look it up, but I'm on a train!
+# 
+
+
+dn: cn=schema
+changetype: modify
+add: objectclasses
+objectclasses: ( 2.16.840.1133730.2.123 NAME 'sshChicagoPerson' DESC 'SSH Chicago Member Class' SUP inetOrgPerson AUXILIARY MUST cn MAY ( sshcZohoId) )
+
+# Zoho User ID
+dn: cn=schema
+changetype: modify
+modify: attributetypes
+attributetypes: ( 1.2.3.4.5.6.69 NAME 'zohoId' DESC 'Zoho ID' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUED )
+
+# Payment type (free-form string, unless I can define a list?)
+dn: cn=schema
+changetype: modify
+modify: attributetypes
+attributetypes: ( 1.2.3.4.5.6.80 NAME 'paymentType' DESC 'Preferred payment type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUED )
+
+
+
+# PayPal Profile ID (a string each PayPal user is assigned)
+dn: cn=schema
+changetype: modify
+add: attributetypes
+attributetypes: ( 1.2.3.4.5.6.70 NAME 'paypalProfileId' DESC 'PayPal Profile ID)' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUED )
+
+# PayPal Email Address (payment address, which does not have to match the address elsewhere)
+dn: cn=schema
+changetype: modify
+add: attributetypes
+attributetypes: ( 1.2.3.4.5.6.71 NAME 'paypalEmailAddress' DESC 'Paypal User Email Address' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUED )
+
+# Equipment Ceritfication URL 
+dn: cn=schema
+changetype: modify
+add: attributetypes
+attributetypes: ( 1.2.3.4.5.6.72 NAME 'equipmentCertificationUrl' DESC 'Equipment Certification URL' SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 SINGLE-VALUED )
+
+# Mozilla Open Badge Profile URL
+dn: cn=schema
+changetype: modify
+add: attributetypes
+attributetypes: ( 1.2.3.4.5.6.78 NAME 'mozillaOpenBadgeUrl' DESC 'Link to member's Mozilla Open Badge URL' SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 SINGLE-VALUED )
+
+
+# RFID Tag/Badge Number
+dn: cn=schema
+changetype: modify
+add: attributetypes
+attributetypes: ( 1.2.3.4.5.6.73 NAME 'rfidBadge' DESC 'RFID Badge Number' SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 SINGLE-VALUED )
+
+# Key number (the metal type)
+dn: cn=schema
+changetype: modify
+add: attributetypes
+attributetypes: ( 1.2.3.4.5.6.73 NAME 'metalKeyNum' DESC 'Key number (the metal kind)' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUED )
+
+# Member join date
+dn: cn=schema
+changetype: modify
+add: attributetypes
+attributetypes: ( 1.2.3.4.5.6.74 NAME 'memberJoinDate' DESC 'Membership start date' SYNTAX 1.3.6.1.4.1.1466.115.121.1.24 SINGLE-VALUED)
+
+# Membership termination date
+dn: cn=schema
+changetype: modify
+add: attributetypes
+attributetypes: ( 1.2.3.4.5.6.75 NAME 'memberLapseDate' DESC 'Membership lapse date' SYNTAX 1.3.6.1.4.1.1466.115.121.1.24 SINGLE-VALUED)
+
+
