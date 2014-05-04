@@ -1,10 +1,11 @@
 # This is an LDIF that defines additional attributes we attach to members.
 
-# TODO: The OIDs here need to be re-defined to use our PEN.
-# I think 1.3.6.1.4.1.<oid>.<whatever> is standard for attributes
-# and 2.16.840.<oid>.<whatever> is classes. I think. 
-# I'd look it up, but I'm on a train!
-# 
+# TODO: Okay, these should be at (I'm replicating Netscape's setup here):
+# 1.3.6.1.4.1.43417.3.2 - Object Classes
+# 1.3.6.1.4.1.43417.3.1 - Object Attributes
+# Ref: http://oid-info.com/cgi-bin/display?tree=2.16.840.1.113730.3
+
+# Reference on attribute object types: https://access.redhat.com/site/documentation/en-US/Red_Hat_Directory_Server/9.0/html/Administration_Guide/Directory_Server_Attribute_Syntax.html#tab.ldap-attribute-syntax
 
 
 dn: cn=schema
