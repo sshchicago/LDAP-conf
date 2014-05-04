@@ -93,6 +93,6 @@ attributetypes: ( 1.3.6.1.4.1.43417.3.1.12 NAME 'hackerspaceFederations' DESC 'M
 dn: cn=schema
 changetype: modify
 add: objectclasses
-objectclasses: ( 1.3.6.1.4.1.43417.3.2.1 NAME 'sshChicagoPerson' DESC 'SSH Chicago Member Class' SUP inetOrgPerson AUXILIARY MUST (cn $ zohoId) MAY ( paymentType $  paypalProfileId $  paypalEmailAddress $  equipmentCertificationUrl $  mozillaOpenBadgeUrl $  rfidBadge $  metalKeyNum $  memberJoinDate $  memberLapseDate $  isFederated $  hackerspaceFederations ) )
+objectclasses: ( 1.3.6.1.4.1.43417.3.2.1 NAME 'sshChicagoPerson' DESC 'SSH Chicago Member Class' SUP inetOrgPerson AUXILIARY MUST (cn ) MAY ( zohoId $ paymentType $  paypalProfileId $  paypalEmailAddress $  equipmentCertificationUrl $  mozillaOpenBadgeUrl $  rfidBadge $  metalKeyNum $  memberJoinDate $  memberLapseDate $  isFederated $  hackerspaceFederations ) )
 
 
