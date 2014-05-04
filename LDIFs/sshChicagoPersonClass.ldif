@@ -12,19 +12,19 @@ changetype: modify
 add: objectclasses
 objectclasses: ( 2.16.840.1133730.2.123 NAME 'sshChicagoPerson' DESC 'SSH Chicago Member Class' SUP inetOrgPerson AUXILIARY MUST cn MAY ( sshcZohoId) )
 
+
+### Member Payment: ###
 # Zoho User ID
 dn: cn=schema
 changetype: modify
-modify: attributetypes
+add: attributetypes
 attributetypes: ( 1.2.3.4.5.6.69 NAME 'zohoId' DESC 'Zoho ID' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUED )
 
 # Payment type (free-form string, unless I can define a list?)
 dn: cn=schema
 changetype: modify
-modify: attributetypes
+add: attributetypes
 attributetypes: ( 1.2.3.4.5.6.80 NAME 'paymentType' DESC 'Preferred payment type' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUED )
-
-
 
 # PayPal Profile ID (a string each PayPal user is assigned)
 dn: cn=schema
@@ -38,6 +38,8 @@ changetype: modify
 add: attributetypes
 attributetypes: ( 1.2.3.4.5.6.71 NAME 'paypalEmailAddress' DESC 'Paypal User Email Address' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 SINGLE-VALUED )
 
+
+### Member certification: ###
 # Equipment Ceritfication URL 
 dn: cn=schema
 changetype: modify
@@ -51,6 +53,7 @@ add: attributetypes
 attributetypes: ( 1.2.3.4.5.6.78 NAME 'mozillaOpenBadgeUrl' DESC 'Link to member's Mozilla Open Badge URL' SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 SINGLE-VALUED )
 
 
+### Physical Access: ###
 # RFID Tag/Badge Number
 dn: cn=schema
 changetype: modify
@@ -63,6 +66,7 @@ changetype: modify
 add: attributetypes
 attributetypes: ( 1.2.3.4.5.6.73 NAME 'metalKeyNum' DESC 'Key number (the metal kind)' SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 SINGLE-VALUED )
 
+### Dates: ###
 # Member join date
 dn: cn=schema
 changetype: modify
@@ -74,5 +78,18 @@ dn: cn=schema
 changetype: modify
 add: attributetypes
 attributetypes: ( 1.2.3.4.5.6.75 NAME 'memberLapseDate' DESC 'Membership lapse date' SYNTAX 1.3.6.1.4.1.1466.115.121.1.24 SINGLE-VALUED)
+
+### Federation with other Hackerspaces ###
+# Is federated
+dn: cn=schema
+changetype: modify
+add: attributetypes
+attributetypes: ( 1.2.3.4.5.6.76 NAME 'isFederated' DESC 'Member is part of a hackerspace federation' SYNTAX 1.3.6.1.4.1.1466.115.121.1.7 SINGLE-VALUED)
+
+# List of hackerspaces member is federated with XXX - This needs to be multi-valued, collective? 
+dn: cn=schema
+changetype: modify
+add: attributetypes
+attributetypes: ( 1.2.3.4.5.6.77 NAME 'hackerspaceFederations' DESC 'Member is federated with these hackerspaces' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15)
 
 
